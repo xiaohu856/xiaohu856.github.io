@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小胡导航</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 主题切换按钮 -->
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-icon">🌙</span>
+    </button>
+    <!-- 更新日志按钮 -->
+    <button id="changelog-button" class="changelog-button">
+        <span class="changelog-icon">📄</span>
+    </button>
+    <!-- 跟随系统主题开关 -->
+    <div class="system-theme-toggle">
+        <label for="system-theme-switch">跟随系统主题</label>
+        <input type="checkbox" id="system-theme-switch" checked>
+    </div>
+    <!-- 动态背景 -->
+    <div class="background-pattern"></div>
+    
+    <!-- 导航容器 -->
+    <main class="nav-container">
+        <h1 class="title animate-float">小胡web导航</h1>
+
+        <!-- 搜索框 -->
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="搜索项目...">
+            <svg class="search-icon"><use xlink:href="assets/icons/sprite.svg#search"></use></svg>
+        </div>
+
+        <!-- 项目分类筛选 -->
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="tool">工具</button>
+            <button class="filter-btn" data-filter="design">设计</button>
+            <button class="filter-btn" data-filter="game">游戏</button>
+            <button class="filter-btn" data-filter="ai">AI</button>
+        </div>
+
+        <!-- 项目卡片网格 -->
+        <div class="card-grid">
+            <!-- 项目 1 -->
+            <article class="web-card" data-url="http://m.webcats.cn/bx/97547/46579" data-category="game">
+                <div class="card-content">
+                    <img src="assets/icons/mc.png" class="card-icon">
+                    <h3>在线MC（已上线）</h3>
+                    <p>可以在手机浏览器上直接运行的电脑版MC</p>
+                    <div class="card-hover"></div>
+                </div>
+            </article>
+
+            <!-- 项目 2 -->
+            <article class="web-card" data-url="https://example.com/design-tool" data-category="design">
+                <div class="card-content">
+                    <img src="assets/icons/design.png" class="card-icon">
+                    <h3>设计工具箱（开发中...）</h3>
+                    <p>一套专为设计师打造的在线工具集合</p>
+                    <div class="card-hover"></div>
+                </div>
+            </article>
+
+            <!-- 项目 3 -->
+            <article class="web-card" data-url="http://m.webcats.cn/bx/97547/46425" data-category="game">
+                <div class="card-content">
+                    <img src="assets/icons/game.png" class="card-icon">
+                    <h3>小游戏-打地鼠（已上线）</h3>
+                    <p>经典小游戏，休闲娱乐必备</p>
+                    <div class="card-hover"></div>
+                </div>
+            </article>
+
+            <!-- 项目 4 -->
+            <article class="web-card" data-url="https://example.com/ai-tool" data-category="ai">
+                <div class="card-content">
+                    <img src="assets/icons/ai.png" class="card-icon">
+                    <h3>AI 工具箱（开发中...）</h3>
+                    <p>集成多种 AI 工具的在线平台</p>
+                    <div class="card-hover"></div>
+                </div>
+            </article>
+
+            <!-- 项目 5 -->
+            <article class="web-card" data-url="https://example.com/color-picker" data-category="design">
+                <div class="card-content">
+                    <img src="assets/icons/color.png" class="card-icon">
+                    <h3>在线取色器（开发中...）</h3>
+                    <p>快速获取颜色的 RGB 和 HEX 值</p>
+                    <div class="card-hover"></div>
+                </div>
+            </article>
+
+            <!-- 项目 6 -->
+            <article class="web-card" data-url="http://m.webcats.cn/bx/97547/46632" data-category="tool">
+                <div class="card-content">
+                    <img src="assets/icons/vd.png" class="card-icon">
+                    <h3>视频播放器（已上线）</h3>
+                    <p>简单易用的播放工具</p>
+                    <div class="card-hover"></div>
+                </div>
+            </article>
+
+            <!-- 项目 7 -->
+            <article class="web-card" data-url="https://example.com/ai-art" data-category="ai">
+                <div class="card-content">
+                    <img src="assets/icons/art.png" class="card-icon">
+                    <h3>AI 艺术生成器（开发中...）</h3>
+                    <p>使用 AI 生成独特的艺术作品</p>
+                    <div class="card-hover"></div>
+                </div>
+            </article>
+
+            <!-- 项目 8 -->
+            <article class="web-card" data-url="https://example.com/weather" data-category="tool">
+                <div class="card-content">
+                    <img src="as
