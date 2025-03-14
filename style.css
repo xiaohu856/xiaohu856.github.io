@@ -1,0 +1,267 @@
+:root {
+    --primary: #6366f1;
+    --secondary: #8b5cf6;
+    --background: #1e293b;
+    --surface: rgba(255, 255, 255, 0.05);
+    --text: white; /* 默认文字颜色 */
+    --radius: 16px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 浅色主题 */
+[data-theme="light"] {
+    --background: #f8fafc;
+    --surface: rgba(0, 0, 0, 0.05);
+    --text: #1e293b; /* 浅色主题文字颜色 */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: background 0.5s ease, color 0.5s ease;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* 动态背景 */
+.background-pattern {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/bg-pattern.svg');
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* ================= 主题切换按钮 ================= */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--surface);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    font-size: 20px;
+}
+
+/* ================= 更新日志按钮 ================= */
+.changelog-button {
+    position: fixed;
+    top: 20px;
+    right: 80px;
+    background: var(--surface);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.changelog-button:hover {
+    transform: scale(1.1);
+}
+
+.changelog-icon {
+    font-size: 20px;
+}
+
+/* ================= 跟随系统主题开关 ================= */
+.system-theme-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+}
+
+.system-theme-toggle label {
+    cursor: pointer;
+}
+
+.system-theme-toggle input {
+    cursor: pointer;
+}
+
+/* ================= 更新日志窗口 ================= */
+.changelog-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.changelog-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.changelog-content {
+    background: var(--background);
+    padding: 2rem;
+    border-radius: var(--radius);
+    max-width: 500px;
+    width: 90%;
+    box-shadow: var(--shadow);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    color: var(--text);
+}
+
+.changelog-modal.active .changelog-content {
+    transform: scale(1);
+}
+
+.changelog-content h2 {
+    margin-bottom: 1rem;
+}
+
+.changelog-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.changelog-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+.close-button {
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    color: white;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+.close-button:hover {
+    background: var(--secondary);
+}
+
+/* ================= 页面内容 ================= */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: var(--text);
+}
+
+/* ================= 搜索框 ================= */
+.search-box {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+#search-input:focus {
+    border-color: var(--primary);
+}
+
+.search-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    fill: rgba(255, 255, 255, 0.5);
+}
+
+/* ================= 分类筛选按钮 ================= */
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ================= 底部文字 ================= */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--surface);
+    color: var(--text);
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.footer a {
+    color: var(--text); /* 超链接文字颜色跟随主题切换 */
+    text-decoration: none; /* 移除下划线 */
+    transition: opacity 0.3s ease;
+}
+
+.footer a:hover {
+    opacity: 0.8; /* 悬停时透明度变化 */
+}
